@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <script>
+            if (localStorage.getItem("debug") === "active") {
+                document.write('<script src="http:\/\/localhost:8097"><\/script>')
+            }
+        </script>
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+
+        <script src="build/react.development.js"></script>
+        <script src="build/react-dom.development.js"></script>
+        <script src="build/framer.js"></script>
+
+        <link href="build/Draft.css" rel="stylesheet" />
+        <link href="build/style.css" rel="stylesheet" />
+
+        <!-- Workaround for a WebKit bug: loading via URL from the stylesheet is denied if this file is loaded via file:/// -->
+        <style>
+            @font-face {
+                font-family: "Roboto Mono";
+                font-style: normal;
+                font-weight: 400;
+                src: local("Roboto Mono"), local("RobotoMono-Regular"),
+                    url("fonts/RobotoMono-Regular.ttf") format("truetype");
+            }
+            @font-face {
+                font-family: "Input Mono";
+                font-style: normal;
+                font-weight: 400;
+                src: local("Input Mono"), url("fonts/QbHJVUjy6YgY.app.ttf") format("truetype");
+            }
+
+            .framerInternalUI-componentPlaceholder {
+                color: rgb(136, 85, 255);
+                background-color: rgba(163, 113, 255);
+                border-color: rgba(175, 125, 255);
+            }
+
+            .framerInternalUI-errorPlaceholder {
+                color: rgb(255, 0, 85);
+                background-color: rgb(242, 219, 224);
+                border-color: rgb(246, 193, 204);
+                border-style: solid;
+            }
+        </style>
+        <style>
+            * {
+                -webkit-font-smoothing: antialiased;
+            }
+        </style>
+    </head>
+
+    <body>
+        <main></main>
+        <script src="build/standalone.js"></script>
+        
+        <script id="build_index_js">
+        (function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("framer"));
+	else if(typeof define === 'function' && define.amd)
+		define(["framer"], factory);
+	else {
+		var a = typeof exports === 'object' ? factory(require("framer")) : factory(root["Framer"]);
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function(__WEBPACK_EXTERNAL_MODULE_framer__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		try { modules[moduleId].call(module.exports, module, module.exports, __webpack_require__); } catch (error) { module.exports = { error } }
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// asset url
+/******/ 	var __module_i = eval("typeof module !== 'undefined' ? module.i : ''");
+/******/ 	var __framer_package = (/(node_modules[/].*)[/](build|dist).index.js/.exec(__module_i) || [])[1]
+/******/ 	function __asset_url__(src) { return __WEBPACK_EXTERNAL_MODULE_framer__.serverURL(__framer_package, src) };
+/******/ 	installedModules['framer/resource'] = { i: 'framer/resource', l: true, exports: { url: __asset_url__ } };
+/******/
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./package.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./code sync recursive \\.(t|j)s(x?)|\\.css$":
+/*!***************************************!*\
+  !*** ./code sync \.(t|j)s(x?)|\.css$ ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./Examples.tsx": "./code/Examples.tsx",
+	"./Jetscan.tsx": "./code/Jetscan.tsx",
+	"./Line.tsx": "./code/Line.tsx",
+	"./Test.tsx": "./code/Test.tsx",
+	"./Test_2.tsx": "./code/Test_2.tsx",
+	"./canvas.tsx": "./code/canvas.tsx"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./code sync recursive \\.(t|j)s(x?)|\\.css$";
+
+/***/ }),
+
+/***/ "./code/Examples.tsx":
+/*!***************************!*\
+  !*** ./code/Examples.tsx ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+//# framerSourceMap=eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXhhbXBsZXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9jb2RlL0V4YW1wbGVzLnRzeCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUdBLHNCQUFzQjtBQUN0QixxQkFBcUI7QUFDckIsdUJBQXVCO0FBQ3ZCLHNCQUFzQjtBQUN0Qix1QkFBdUI7QUFDdkIsK0JBQStCO0FBQy9CLHdCQUF3QjtBQUN4Qix3QkFBd0I7QUFDeEIsc0JBQXNCO0FBQ3RCLHVCQUF1QjtBQUN2QiwrQkFBK0I7QUFDL0IscUNBQXFDO0FBQ3JDLHdDQUF3QztBQUN4Qyx3Q0FBd0M7QUFDeEMseUJBQXlCO0FBQ3pCLDBCQUEwQjtBQUUxQiwrQkFBK0I7QUFDL0Isd0JBQXdCO0FBQ3hCLHlCQUF5QjtBQUN6Qix3QkFBd0I7QUFDeEIsdUNBQXVDO0FBQ3ZDLHlDQUF5QztBQUN6QyxvREFBb0Q7QUFDcEQscUNBQXFDO0FBQ3JDLHlDQUF5QztBQUV6QyxnQ0FBZ0M7QUFDaEMsK0JBQStCO0FBQy9CLHdCQUF3QjtBQUN4Qix5QkFBeUI7QUFDekIsb0JBQW9CO0FBQ3BCLDRCQUE0QjtBQUM1Qix3Q0FBd0M7QUFDeEMsb0NBQW9DO0FBQ3BDLHNCQUFzQjtBQUN0QixLQUFLO0FBRUwsc0NBQXNDO0FBQ3RDLGVBQWU7QUFDZixzQ0FBc0M7QUFDdEMsUUFBUTtBQUNSLElBQUk7QUFFSiwwQ0FBMEM7QUFDMUMsZUFBZTtBQUNmLHNCQUFzQjtBQUN0QixRQUFRO0FBQ1IsSUFBSTtBQUVKLDZCQUE2QjtBQUM3QixxQ0FBcUM7QUFDckMsdUVBQXVFO0FBQ3ZFLG9FQUFvRTtBQUNwRSxRQUFRO0FBQ1IsSUFBSTtBQUNKLGVBQWU7QUFDZiw2QkFBNkI7QUFDN0Isb0JBQW9CO0FBQ3BCLDBDQUEwQztBQUMxQyxRQUFRO0FBQ1IsSUFBSTtBQUVKLCtCQUErQjtBQUMvQix3RUFBd0U7QUFDeEUsb0NBQW9DO0FBQ3BDLHNDQUFzQztBQUN0QyxpQ0FBaUM7QUFDakMsOEJBQThCO0FBQzlCLGVBQWU7QUFFZixrRkFBa0Y7QUFDbEYsUUFBUTtBQUVSLFNBQWdCLE1BQU07O0lBQ2xCLE9BQU87UUFDSCxPQUFPLEVBQUUsR0FBRztRQUNaLEdBQUcsRUFBRSxDQUFDO1FBQ04sT0FBTyxFQUFFLENBQUMsRUFBRTtRQUNaLGlCQUFpQjtRQUNqQixLQUFLLEVBQUUsR0FBRztRQUNWLGVBQWU7UUFDZixxQkFBcUI7UUFDckIsZUFBZSxFQUFFLFFBQVE7UUFDekIsaUNBQWlDO1FBQ2pDLG1DQUFtQztRQUVuQyw2QkFBNkI7UUFDN0IsaUNBQWlDO1FBQ2pDLFlBQVk7UUFDWixlQUFlO1FBRWYsVUFBVSxFQUFFO1lBQ1IsS0FBSyxFQUFFLENBQUM7WUFDUixRQUFRLEVBQUUsQ0FBQztZQUNYLGFBQWEsRUFBRSxFQUFFLE9BQU8sRUFBRSxHQUFHLEVBQUUsUUFBUSxFQUFFLEVBQUUsRUFBRTtZQUM3QyxJQUFJLEVBQUUsUUFBUTtZQUNkLE9BQU8sRUFBRSxDQUFDO1lBQ1YsSUFBSSxFQUFFLElBQUk7WUFDVixTQUFTLEVBQUUsR0FBRztZQUNkLFdBQVcsRUFBRSxDQUFDLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQztTQUNsQztRQUNELFlBQVk7UUFDWixPQUFPLEVBQUU7WUFDTCwwQkFBMEI7WUFDMUIsWUFBWTtZQUNaLGVBQWU7WUFDZix3QkFBd0I7WUFDeEIsS0FBSyxFQUFFLEdBQUc7WUFDVixrQkFBa0I7WUFDbEIsbUNBQW1DO1lBQ25DLG9CQUFvQjtZQUNwQixPQUFPLEVBQUUsQ0FBQztZQUNWLEdBQUcsRUFBRSxDQUFDLEdBQUc7WUFDVCxPQUFPLEVBQUUsQ0FBQztTQUtiO0tBQ0osQ0FBQTtDQUNKO0FBL0NELHdCQStDQztBQUNEIn0=
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// const data = Data({
+//     // rotateX: 0,
+//     // rotateX: -90,
+//     // rotateX: 90,
+//     // toggle: true,
+//     // perspective: "600px",
+//     // width: "100%",
+//     // height: "4px",
+//     // scaleX: "3%"
+//     // top: "-90px",
+//     // position: "absolute",
+//     // transition: "transform 1s",
+//     // transformStyle: "preserve-3d",
+//     // background-color: transparent;
+//     //   width: 300px;
+//     //   height: 300px;
+//     //   position: relative;
+//     //   width: 100%;
+//     //   height: 100%;
+//     //  	opacity: .2;
+//     // transition: "transform 0.6s",
+//     //   transform-style: preserve-3d;
+//     //   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+//     //   transform-origin: bottom;
+//     // transform: "rotateX(-81.5deg)",
+//     // perspective: "1000px",
+//     // position: "relative",
+//     // width: "100%",
+//     // height: "100%",
+//     opacity: 0.2,
+//     // transform: "0.6s",
+//     // transformStyle: "preserve-3d",
+//     // transformOrigin: "bottom",
+//     rotateX: -81.5,
+// })
+// export function Hover(): Override {
+//     return {
+//         whileHover: { scale: 0.8 },
+//     }
+// }
+// export function Draggable(): Override {
+//     return {
+//         drag: true,
+//     }
+// }
+// export function Whatup() {
+//     const [wist, cycl] = useCycle(
+//         { scale: 0.5, perspective: 500, transformOrigin: "bottom" },
+//         { scale: 1, perspective: 200, transformOrigin: "bottom" }
+//     )
+// }
+//     return {
+//         animate: { wist },
+//         // onTap:
+//         // {() => cycl()} size={"100%"}
+//     }
+// }
+// export function useCycle() {
+//     const [animate, cycle] = useCycle({ scale: 1.5 }, { scale: 1.0 })
+//     // export function Whatup() {
+// // export const [cycle] = useCycle(
+// //             { scale: 1.5 },
+// //             { scale: 1 }
+// //         )
+//     //     return <Frame animate={twist} onTap={() => cycle()} size={"100%"} />
+//     }
+function Rotate() {
+    window["__checkBudget__"]();
+    return {
+        opacity: 0.1,
+        top: 0,
+        rotateX: -90,
+        // scale: "120%",
+        width: 346,
+        // height: 300,
+        // perspective: -100,
+        transformOrigin: "bottom",
+        // transformStyle: "preserve-3d",
+        // bezierCurve: [0.2, 0.8, 0.2, 1],
+        // transformOrigin: "bottom",
+        // transformStyle: "preserve-3d",
+        // delay: 1,
+        // duration: 3,
+        transition: {
+            delay: 3,
+            duration: 2,
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            stiffness: 100,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        // scale: 2,
+        animate: {
+            // cycle: {scale: 1.5, 1},
+            // delay: 1,
+            // duration: 3,
+            // position: "relative",
+            width: 360,
+            // height: "100%",
+            // cycle(scale: 1.5, scale: 1.5  ),
+            // perspective: 200,
+            opacity: 1,
+            top: -103,
+            rotateX: 0,
+        },
+    };
+}
+exports.Rotate = Rotate;
+exports.__info__ = [{ name: "Rotate", type: "override" }];
+
+
+/***/ }),
+
+/***/ "./code/Jetscan.tsx":
+/*!**************************!*\
+  !*** ./code/Jetscan.tsx ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+//# framerSourceMap=eyJ2ZXJzaW9uIjozLCJmaWxlIjoiSmV0c2Nhbi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL2NvZGUvSmV0c2Nhbi50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFHQSxzQkFBc0I7QUFDdEIscUJBQXFCO0FBQ3JCLHVCQUF1QjtBQUN2QixzQkFBc0I7QUFDdEIsdUJBQXVCO0FBQ3ZCLCtCQUErQjtBQUMvQix3QkFBd0I7QUFDeEIsd0JBQXdCO0FBQ3hCLHNCQUFzQjtBQUN0Qix1QkFBdUI7QUFDdkIsK0JBQStCO0FBQy9CLHFDQUFxQztBQUNyQyx3Q0FBd0M7QUFDeEMsd0NBQXdDO0FBQ3hDLHlCQUF5QjtBQUN6QiwwQkFBMEI7QUFFMUIsK0JBQStCO0FBQy9CLHdCQUF3QjtBQUN4Qix5QkFBeUI7QUFDekIsd0JBQXdCO0FBQ3hCLHVDQUF1QztBQUN2Qyx5Q0FBeUM7QUFDekMsb0RBQW9EO0FBQ3BELHFDQUFxQztBQUNyQyx5Q0FBeUM7QUFFekMsZ0NBQWdDO0FBQ2hDLCtCQUErQjtBQUMvQix3QkFBd0I7QUFDeEIseUJBQXlCO0FBQ3pCLG9CQUFvQjtBQUNwQiw0QkFBNEI7QUFDNUIsd0NBQXdDO0FBQ3hDLG9DQUFvQztBQUNwQyxzQkFBc0I7QUFDdEIsS0FBSztBQUVMLHNDQUFzQztBQUN0QyxlQUFlO0FBQ2Ysc0NBQXNDO0FBQ3RDLFFBQVE7QUFDUixJQUFJO0FBRUosMENBQTBDO0FBQzFDLGVBQWU7QUFDZixzQkFBc0I7QUFDdEIsUUFBUTtBQUNSLElBQUk7QUFFSiw2QkFBNkI7QUFDN0IscUNBQXFDO0FBQ3JDLHVFQUF1RTtBQUN2RSxvRUFBb0U7QUFDcEUsUUFBUTtBQUNSLElBQUk7QUFDSixlQUFlO0FBQ2YsNkJBQTZCO0FBQzdCLG9CQUFvQjtBQUNwQiwwQ0FBMEM7QUFDMUMsUUFBUTtBQUNSLElBQUk7QUFFSiwrQkFBK0I7QUFDL0Isd0VBQXdFO0FBQ3hFLG9DQUFvQztBQUNwQyxzQ0FBc0M7QUFDdEMsaUNBQWlDO0FBQ2pDLDhCQUE4QjtBQUM5QixlQUFl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
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// const data = Data({
+//     // rotateX: 0,
+//     // rotateX: -90,
+//     // rotateX: 90,
+//     // toggle: true,
+//     // perspective: "600px",
+//     // width: "100%",
+//     // height: "4px",
+//     // scaleX: "3%"
+//     // top: "-90px",
+//     // position: "absolute",
+//     // transition: "transform 1s",
+//     // transformStyle: "preserve-3d",
+//     // background-color: transparent;
+//     //   width: 300px;
+//     //   height: 300px;
+//     //   position: relative;
+//     //   width: 100%;
+//     //   height: 100%;
+//     //  	opacity: .2;
+//     // transition: "transform 0.6s",
+//     //   transform-style: preserve-3d;
+//     //   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+//     //   transform-origin: bottom;
+//     // transform: "rotateX(-81.5deg)",
+//     // perspective: "1000px",
+//     // position: "relative",
+//     // width: "100%",
+//     // height: "100%",
+//     opacity: 0.2,
+//     // transform: "0.6s",
+//     // transformStyle: "preserve-3d",
+//     // transformOrigin: "bottom",
+//     rotateX: -81.5,
+// })
+// export function Hover(): Override {
+//     return {
+//         whileHover: { scale: 0.8 },
+//     }
+// }
+// export function Draggable(): Override {
+//     return {
+//         drag: true,
+//     }
+// }
+// export function Whatup() {
+//     const [wist, cycl] = useCycle(
+//         { scale: 0.5, perspective: 500, transformOrigin: "bottom" },
+//         { scale: 1, perspective: 200, transformOrigin: "bottom" }
+//     )
+// }
+//     return {
+//         animate: { wist },
+//         // onTap:
+//         // {() => cycl()} size={"100%"}
+//     }
+// }
+// export function useCycle() {
+//     const [animate, cycle] = useCycle({ scale: 1.5 }, { scale: 1.0 })
+//     // export function Whatup() {
+// // export const [cycle] = useCycle(
+// //             { scale: 1.5 },
+// //             { scale: 1 }
+// //         )
+//     //     return <Frame animate={twist} onTap={() => cycle()} size={"100%"} />
+//     }
+function jet() {
+    window["__checkBudget__"]();
+    return {
+        opacity: 0.1,
+        top: 0,
+        rotateX: -90,
+        // scale: "120%",
+        width: 346,
+        // height: 300,
+        perspective: 100,
+        transformOrigin: "top",
+        // transformStyle: "preserve-3d",
+        // bezierCurve: [0.2, 0.8, 0.2, 1],
+        // transformOrigin: "bottom",
+        // transformStyle: "preserve-3d",
+        // delay: 1,
+        // duration: 3,
+        transition: {
+            delay: 5,
+            duration: 2,
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            stiffness: 100,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        // scale: 2,
+        animate: {
+            // cycle: {scale: 1.5, 1},
+            // delay: 1,
+            // duration: 3,
+            // position: "relative",
+            width: 360,
+            // height: "100%",
+            // cycle(scale: 1.5, scale: 1.5  ),
+            perspective: 200,
+            opacity: 1,
+            top: 1,
+            rotateX: 0,
+        },
+    };
+}
+exports.jet = jet;
+// }
+// export function FlipInput(): Override {
+//     return {
+//         onTap() {
+//             const toggle = data.toggle
+//             data.rotateY = toggle ? 180 : 0
+//             data.toggle = !toggle
+//         },
+//     }
+// }
+// export function FlipOutput(): Override {
+//     return {
+//         animate: { rotateY: data.rotateY },
+//     }
+// }
+// <!DOCTYPE html>
+// <html>
+// <head>
+// <meta name="viewport" content="width=device-width, initial-scale=1">
+// <style>
+// body {
+//   font-family: Arial, Helvetica, sans-serif;
+// }
+// .flip-card {
+//   background-color: transparent;
+//   width: 300px;
+//   height: 300px;
+//   perspective: 1000px;
+// }
+// .flip-card-inner {
+//   position: relative;
+//   width: 100%;
+//   height: 100%;
+//  	opacity: .2;
+//   transition: transform 0.6s;
+//   transform-style: preserve-3d;
+//   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+//   transform-origin: bottom;
+//   transform: rotateX(-81.5deg);
+// }
+// .flip-card:hover .flip-card-inner {
+// transition: transform 0.6s;
+//  opacity: 1;
+//   transform: rotateX(0deg);
+// }
+// .flip-card-front, .flip-card-back {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%;
+//   backface-visibility: hidden;
+// }
+// .flip-card-front {
+//   background-color: #bbb;
+//   color: black;
+// }
+// </style>
+// </head>
+// <body>
+// <h1>Card Flip with Text</h1>
+// <h3>Hover over the image below:</h3>
+// <div class="flip-card">
+//   <div class="flip-card-inner">
+//     <div class="flip-card-front">
+//       <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+//     </div>
+//   </div>
+// </div>
+// </body>
+// </html>
+exports.__info__ = [{ name: "jet", type: "override" }];
+
+
+/***/ }),
+
+/***/ "./code/Line.tsx":
+/*!***********************!*\
+  !*** ./code/Line.tsx ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+//# framerSourceMap=eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGluZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL2NvZGUvTGluZS50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSxtQ0FBbUU7QUFFbkUsTUFBTSxJQUFJLEdBQUcsYUFBSSxDQUFDO0lBQ2QseUNBQXlDO0lBQ3pDLDhCQUE4QjtJQUM5QixhQUFhO0lBQ2IsYUFBYSxFQUFFLE1BQU07SUFDckIsTUFBTSxFQUFFLEVBQUU7SUFDVixPQUFPLEVBQUUsR0FBRztJQUNaLE9BQU8sRUFBRSxLQUFLO0lBQ2QscUJBQXFCO0lBQ3JCLGtDQUFrQztJQUNsQyxHQUFHLEVBQUUsQ0FBQztDQUNULENBQUMsQ0FBQTtBQUVGLFNBQWdCLFVBQVU7O0lBQ3RCLE9BQU87UUFDSCxtQkFBbUI7UUFDbkIsT0FBTyxFQUFFLEdBQUc7UUFDWixHQUFHLEVBQUUsQ0FBQztRQUNOLGdCQUFnQjtRQUNoQixpQkFBaUI7UUFDakIscUJBQXFCO1FBQ3JCLGNBQWM7UUFDZCxjQUFjO1FBQ2QsWUFBWSxFQUFFLEtBQUs7UUFFbkIsb0NBQW9DO1FBQ3BDLG9CQUFvQjtRQUNwQiw2QkFBNkI7UUFDN0IsaUNBQWlDO1FBQ2pDLG1DQUFtQztRQUVuQyw2QkFBNkI7UUFDN0IsaUNBQWlDO1FBQ2pDLFlBQVk7UUFDWixlQUFlO1FBRWYsVUFBVSxFQUFFO1lBQ1IsS0FBSyxFQUFFLENBQUM7WUFDUixRQUFRLEVBQUUsQ0FBQztZQUNYLGFBQWEsRUFBRSxFQUFFLE9BQU8sRUFBRSxHQUFHLEVBQUUsUUFBUSxFQUFFLEVBQUUsRUFBRTtZQUM3QyxJQUFJLEVBQUUsUUFBUTtZQUNkLE9BQU8sRUFBRSxDQUFDO1lBQ1YsSUFBSSxFQUFFLElBQUk7WUFDVixTQUFTLEVBQUUsR0FBRztZQUNkLFdBQVcsRUFBRSxDQUFDLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQztTQUNsQztRQUNELFlBQVk7UUFDWixPQUFPLEVBQUU7WUFDTCwwQkFBMEI7WUFDMUIsWUFBWTtZQUNaLGVBQWU7WUFDZix3QkFBd0I7WUFDeEIsbUJBQW1CO1lBQ25CLE9BQU8sRUFBRSxDQUFDO1lBQ1YsR0FBRyxFQUFFLEVBQUU7WUFDUCxzQkFBc0I7WUFDdEIsTUFBTSxFQUFFLElBQUksQ0FBQyxNQUFNO1lBQ25CLE1BQU0sRUFBRSxJQUFJLENBQUMsT0FBTztZQUNwQixZQUFZLEVBQUUsSUFBSSxDQUFDLGFBQWE7WUFDaEMsa0NBQWtDO1lBQ2xDLHdDQUF3QztZQUV4QyxjQUFjO1lBQ2QsTUFBTSxFQUFFLENBQUM7U0FFWjtLQUVKLENBQUE7Q0FDSjtBQXZERCxnQ0F1REM7QUFFRCxxREFBcUQ7QUFDckQsZUFBZTtBQUNmLHFCQUFxQjtBQUNyQix5Q0FBeUM7QUFDekMsa0NBQWtDO0FBQ2xDLG9DQUFvQztBQUNwQyxnREFBZ0Q7QUFDaEQsOEJBQThCO0FBQzlCLDRDQUE0QztBQUM1QyxhQUFhO0FBQ2Isb0JBQW9CO0FBQ3BCLHdCQUF3QjtBQUN4Qiw2REFBNkQ7QUFDN0QsOEJBQThCO0FBQzlCLDJCQUEyQjtBQUMzQiwwQkFBMEI7QUFDMUIsOEJBQThCO0FBQzlCLDZCQUE2QjtBQUM3QiwrQ0FBK0M7QUFDL0MsYUFBYTtBQUViLGtDQUFrQztBQUNsQywwQ0FBMEM7QUFDMUMsZ0RBQWdEO0FBQ2hELHVDQUF1QztBQUN2QyxhQUFhO0FBQ2IsUUFBUTtBQUNSLElBQUk7QUFFSixxREFBcUQ7QUFDckQsZUFBZTtBQUNmLHFCQUFxQjtBQUNyQix5Q0FBeUM7QUFDekMsa0NBQWtDO0FBQ2xDLG9DQUFvQztBQUNwQyxnREFBZ0Q7QUFDaEQsOEJBQThCO0FBQzlCLDRDQUE0QztBQUM1QyxhQUFhO0FBQ2Isb0JBQW9CO0FBQ3BCLHdCQUF3QjtBQUN4Qiw2REFBNkQ7QUFDN0QsOEJBQThCO0FBQzlCLDJCQUEyQjtBQUMzQiwwQkFBMEI7QUFDMUIsOEJBQThCO0FBQzlCLDZCQUE2QjtBQUM3QiwrQ0FBK0M7QUFDL0MsYUFBYTtBQUViLGtDQUFrQztBQUNsQywwQ0FBMEM7QUFDMUMsZ0RBQWdEO0FBQ2hELHVDQUF1QztBQUN2QyxhQUFhO0FBQ2IsUUFBUTtBQUNSLElBQUk7QUFDSiJ9
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const framer_1 = __webpack_require__(/*! framer */ "framer");
+const data = framer_1.Data({
+    // colorA: "#66BB66", // A shade of green
+    // colorB: "#66BB66", // ditto
+    // scaleX: 1,
+    borderRadius3: "15px",
+    width2: 12,
+    height2: 0.1,
+    radius2: "0px",
+    // perspective2: 100,
+    // transformStyle2: "preserve-3d",
+    top: 0,
+});
+function LineChange() {
+    window["__checkBudget__"]();
+    return {
+        // display: "flex",
+        opacity: 0.1,
+        top: 0,
+        // rotateX: -90,
+        // scale: "120%",
+        // width: data.width,
+        // width: 360,
+        // height: 30,
+        borderRadius: "0px",
+        // borderRadius: data.borderRadius2,
+        // perspective: 100,
+        // transformOrigin: "bottom",
+        // transformStyle: "preserve-3d",
+        // bezierCurve: [0.2, 0.8, 0.2, 1],
+        // transformOrigin: "bottom",
+        // transformStyle: "preserve-3d",
+        // delay: 1,
+        // duration: 3,
+        transition: {
+            delay: 1,
+            duration: 2,
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            stiffness: 100,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        // scale: 2,
+        animate: {
+            // cycle: {scale: 1.5, 1},
+            // delay: 1,
+            // duration: 3,
+            // position: "relative",
+            // transformX: 360,
+            opacity: 1,
+            top: 40,
+            // width: data.width2,
+            scaleX: data.width2,
+            scaleY: data.height2,
+            borderRadius: data.borderRadius3,
+            // perspective: data.perspective2,
+            // transformStyle: data.transformStyle2,
+            // width: 360,
+            height: 4,
+        },
+    };
+}
+exports.LineChange = LineChange;
+// export const AnimateColorOnTap: Override = () => {
+//     return {
+//         animate: {
+//             //background: data.colorB,
+//             width: data.width1,
+//             height: data.height2,
+//             borderRadius: data.borderRadius2,
+//             top: data.top2,
+//             // transition: { duration: .2
+//         },
+//         // <Frame
+//         transition: {
+//             springOptions: { tension: 500, friction: 30 },
+//             type: "spring",
+//             damping: 10,
+//             mass: 0.75,
+//             stiffness: 100,
+//             duration: 0.1,
+//             bezierCurve: [0.2, 0.8, 0.2, 1],
+//         },
+//         data.width1 = "360px"),
+//                 (data.height2 = "3px"),
+//                 (data.borderRadius2 = "0px"),
+//                 (data.top2 = "39px")
+//         },
+//     }
+// }
+// export const AnimateColorOnTap: Override = () => {
+//     return {
+//         animate: {
+//             //background: data.colorB,
+//             width: data.width1,
+//             height: data.height2,
+//             borderRadius: data.borderRadius2,
+//             top: data.top2,
+//             // transition: { duration: .2
+//         },
+//         // <Frame
+//         transition: {
+//             springOptions: { tension: 500, friction: 30 },
+//             type: "spring",
+//             damping: 10,
+//             mass: 0.75,
+//             stiffness: 100,
+//             duration: 0.1,
+//             bezierCurve: [0.2, 0.8, 0.2, 1],
+//         },
+//         data.width1 = "360px"),
+//                 (data.height2 = "3px"),
+//                 (data.borderRadius2 = "0px"),
+//                 (data.top2 = "39px")
+//         },
+//     }
+// }
+exports.__info__ = [{ name: "LineChange", type: "override" }];
+
+
+/***/ }),
+
+/***/ "./code/Test.tsx":
+/*!***********************!*\
+  !*** ./code/Test.tsx ***!
+  \***********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+//# framerSourceMap=eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVzdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL2NvZGUvVGVzdC50c3giXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFHQSxxQ0FBcUM7QUFDckMscUNBQXFDO0FBQ3JDLHdCQUF3QjtBQUN4QiwyQ0FBMkM7QUFFM0MseUJBQXlCO0FBQ3pCLDRDQUE0QztBQUU1QywyQkFBMkI7QUFDM0IsdUNBQXVDO0FBQ3ZDLHFDQUFxQztBQUNyQyxtQ0FBbUM7QUFDbkMsUUFBUTtBQUVSLDJFQUEyRTtBQUMzRSxJQUFJO0FBRUosa0NBQWtDO0FBQ2xDLGVBQWU7QUFDZixpQkFBaUI7QUFDakIsd0NBQXdDO0FBQ3hDLDJDQUEyQztBQUMzQyx5QkFBeUI7QUFDekIsa0NBQWtDO0FBQ2xDLDBCQUEwQjtBQUMxQixhQUFhO0FBQ2IsUUFBUTtBQUNSLElBQUk7QUFFSix5REFBeUQ7QUFDekQsdUNBQXVDO0FBRXZDLFNBQWdCLEtBQUs7O0lBQ2pCLE9BQU87UUFDSCxPQUFPLEVBQUUsR0FBRztRQUNaLEdBQUcsRUFBRSxHQUFHO1FBQ1IsT0FBTyxFQUFFLENBQUMsRUFBRTtRQUNaLEtBQUssRUFBRSxHQUFHO1FBQ1YsYUFBYTtRQUNiLGVBQWU7UUFDZixvQkFBb0I7UUFDcEIsZUFBZSxFQUFFLEtBQUs7UUFDdEIsaUNBQWlDO1FBQ2pDLG1DQUFtQztRQUVuQyw2QkFBNkI7UUFDN0IsaUNBQWlDO1FBQ2pDLFlBQVk7UUFDWixlQUFlO1FBRWYsVUFBVSxFQUFFO1lBQ1IsS0FBSyxFQUFFLENBQUM7WUFDUixRQUFRLEVBQUUsQ0FBQztZQUNYLGFBQWEsRUFBRSxFQUFFLE9BQU8sRUFBRSxHQUFHLEVBQUUsUUFBUSxFQUFFLEVBQUUsRUFBRTtZQUM3QyxJQUFJLEVBQUUsUUFBUTtZQUNkLE9BQU8sRUFBRSxDQUFDO1lBQ1YsSUFBSSxFQUFFLElBQUk7WUFDVixTQUFTLEVBQUUsR0FBRztZQUNkLFdBQVcsRUFBRSxDQUFDLEdBQUcsRUFBRSxHQUFHLEVBQUUsR0FBRyxFQUFFLENBQUMsQ0FBQztTQUNsQztRQUNELFlBQVk7UUFDWixPQUFPLEVBQUU7WUFDTCwwQkFBMEI7WUFDMUIsWUFBWTtZQUNaLGVBQWU7WUFDZix3QkFBd0I7WUFDeEIsS0FBSyxFQUFFLENBQUM7WUFDUixrQkFBa0I7WUFDbEIsbUNBQW1DO1lBQ25DLG9CQUFvQjtZQUNwQixPQUFPLEVBQUUsQ0FBQztZQUNWLEdBQUcsRUFBRSxHQUFHO1lBQ1IsT0FBTyxFQUFFLENBQUM7U0FLYjtLQUdKLENBQUE7Q0FDSjtBQWpERCxzQkFpREM7QUFDRCxlQUFlO0FBQ2YsbUJBQW1CO0FBQ25CLG1CQUFtQjtBQUNuQixzQkFBc0I7QUFFdEIsU0FBUztBQUVULGdCQUFnQjtBQUNoQixrQ0FBa0M7QUFDbEMsZ0JBQWdCO0FBQ2hCLEtBQUs7QUFDTCxhQUFhO0FBQ2IscUNBQXFDO0FBQ3JDLGtCQUFrQjtBQUNsQixrQ0FBa0M7QUFDbEMscUJBQXFCO0FBQ3JCLDZCQUE2QjtBQUM3QixxQkFBcUI7QUFDckIsS0FBSztBQUNMLGVBQWU7QUFDZixxQkFBcUI7QUFDckIsZ0JBQWdCO0FBQ2hCLElBQUk7QUFDSix5QkFBeUI7QUFDekIsa0NBQWtDO0FBQ2xDLFdBQVc7QUFDWCxpQ0FBaUM7QUFDakMsMERBQTBEO0FBQzFELGVBQWU7QUFDZix3Q0FBd0M7QUFDeEMsS0FBSztBQUNMIn0=
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// import { render } from "react-dom"
+// import { render } from "react-dom"
+// import "./styles.css"
+// import { Frame, useCycle } from "framer"
+// Open Preview (CMD + P)
+// API Reference: https://www.framer.com/api
+// export function Test() {
+//     const [twist, cycle] = useCycle(
+//         { scale: 0.5, rotate: 0 },
+//         { scale: 1, rotate: 90 }
+//     )
+//     return <Frame animate={twist} onTap={() => cycle()} size={"100%"} />
+// }
+// export function MyComponent() {
+//     return (
+//         <Frame
+//             animate={{ rotate: 360 }}
+//             transition={{ duration: 1 }}
+//             size={150}
+//             background={"#fff"}
+//             radius={30}
+//         />
+//     )
+// }
+// const rootElement = document.getElementById("caframe")
+// render(<MyComponent />, rootElement)
+function testy() {
+    window["__checkBudget__"]();
+    return {
+        opacity: 0.1,
+        top: 233,
+        rotateX: -90,
+        scale: 0.8,
+        // size: 100,
+        // height: 300,
+        // perspective: 400,
+        transformOrigin: "top",
+        // transformStyle: "preserve-3d",
+        // bezierCurve: [0.2, 0.8, 0.2, 1],
+        // transformOrigin: "bottom",
+        // transformStyle: "preserve-3d",
+        // delay: 1,
+        // duration: 3,
+        transition: {
+            delay: 1,
+            duration: 2,
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            stiffness: 100,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        // scale: 2,
+        animate: {
+            // cycle: {scale: 1.5, 1},
+            // delay: 1,
+            // duration: 3,
+            // position: "relative",
+            scale: 1,
+            // height: "100%",
+            // cycle(scale: 1.5, scale: 1.5  ),
+            // perspective: 600,
+            opacity: 1,
+            top: 150,
+            rotateX: 0,
+        },
+    };
+}
+exports.testy = testy;
+// transform: {
+//     rotateX: 90,
+//     // delay: 1,
+//     // duration: 1,
+//     },
+// transition: {
+//     transform: "duration: 3.5",
+//     delay: 1,
+// },
+// animate: {
+//     // transition: transform 0.6s;
+//     opacity: 1,
+//     transform: "rotateX(0deg)",
+//     // rotateX: 0,
+//     // transition: "0.6s",
+//     // opacity: 1,
+// },
+// transform: {
+// "rotateX: (0deg)",
+//  rotateX: 90,
+// }
+//     // height: "79px",
+//     // rotateX: data.rotate + 0
+//     // ,
+//     // transformOrigin: "top",
+//     // transform: "translateY(-100%) rotateY(-180deg)",
+// // onTap() {
+// //     data.rotate = data.rotate + 90
+// },
+exports.__info__ = [{ name: "testy", type: "override" }];
+
+
+/***/ }),
+
+/***/ "./code/Test_2.tsx":
+/*!*************************!*\
+  !*** ./code/Test_2.tsx ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+//# framerSourceMap=eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVzdF8yLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vY29kZS9UZXN0XzIudHN4Il0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsbUNBT2U7QUFFZixNQUFNLElBQUksR0FBRyxhQUFJLENBQUM7SUFDZCxLQUFLLEVBQUUsbUJBQVUsQ0FBQyxFQUFFLENBQUM7SUFDckIsTUFBTSxFQUFFLG1CQUFVLENBQUMsRUFBRSxDQUFDO0lBQ3RCLE1BQU0sRUFBRSxtQkFBVSxDQUFDLEVBQUUsQ0FBQztJQUN0QixPQUFPLEVBQUUsbUJBQVUsQ0FBQyxHQUFHLENBQUM7SUFDeEIsR0FBRyxFQUFFLG1CQUFVLENBQUMsQ0FBQyxFQUFFLENBQUM7Q0FDdkIsQ0FBQyxDQUFBO0FBRUYsTUFBTSxjQUFjLEdBQUcsYUFBSSxDQUFDO0lBQ3hCLFVBQVUsRUFBRSxTQUFTO0NBQ3hCLENBQUMsQ0FBQTtBQUVGLE1BQU0sZ0JBQWdCLEdBQUcsYUFBSSxDQUFDO0lBQzFCLEtBQUssRUFBRSxFQUFFO0lBQ1QsTUFBTSxFQUFFLEVBQUU7SUFDVixNQUFNLEVBQUUsRUFBRTtJQUNWLE9BQU8sRUFBRSxHQUFHO0lBQ1osR0FBRyxFQUFFLENBQUMsRUFBRTtJQUNSLFVBQVUsRUFBRSxFQUFFLElBQUksRUFBRSxPQUFPLEVBQUUsSUFBSSxFQUFFLFdBQVcsRUFBRTtDQUNuRCxDQUFDLENBQUE7QUFFRixNQUFNLGNBQWMsR0FBRyxhQUFJLENBQUM7SUFDeEIsTUFBTSxFQUFFLEdBQUc7SUFDWCxPQUFPLEVBQUUsRUFBRTtJQUNYLE9BQU8sRUFBRSxHQUFHO0lBQ1osR0FBRyxFQUFFLEVBQUU7SUFDUCxlQUFlLEVBQUUsUUFBUTtDQUM1QixDQUFDLENBQUE7QUFFRixNQUFNLGVBQWUsR0FBRyxhQUFJLENBQUM7SUFDekIsS0FBSyxFQUFFLEdBQUc7SUFDVixPQUFPLEVBQUUsQ0FBQyxFQUFFO0lBQ1osT0FBTyxFQUFFLEdBQUc7SUFDWixHQUFHLEVBQUUsQ0FBQztJQUNO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
+
+Object.defineProperty(exports, "__esModule", { value: true });
+const framer_1 = __webpack_require__(/*! framer */ "framer");
+const data = framer_1.Data({
+    width: framer_1.Animatable(30),
+    height: framer_1.Animatable(30),
+    radius: framer_1.Animatable(15),
+    opacity: framer_1.Animatable(0.1),
+    top: framer_1.Animatable(-50),
+});
+const initialStateBG = framer_1.Data({
+    background: "#604099",
+});
+const initialStateLine = framer_1.Data({
+    width: 30,
+    height: 30,
+    radius: 15,
+    opacity: 0.1,
+    top: -50,
+    transition: { type: "tween", ease: "easeInOut" },
+});
+const initialStateCA = framer_1.Data({
+    scaleX: 0.8,
+    rotateX: 90,
+    opacity: 0.2,
+    top: 79,
+    transformOrigin: "bottom",
+});
+const initialStateJSS = framer_1.Data({
+    width: 346,
+    rotateX: -90,
+    opacity: 0.1,
+    top: 0,
+    perspective: 100,
+    transformOrigin: "top",
+});
+exports.Background = () => {
+    window["__checkBudget__"]();
+    return {
+        background: initialStateBG.background,
+        transition: {
+            // delay: 1,
+            duration: 4,
+            ease: "linear",
+        },
+        animate: {
+            background: "#0077C8",
+        },
+    };
+};
+exports.Line = () => {
+    window["__checkBudget__"]();
+    const variants = {
+        start: { width: 30 },
+        end: { width: 360 },
+    };
+    // data.width.set(initialStateLine.width),
+    // data.height.set(initialStateLine.height),
+    // data.radius.set(initialStateLine.radius),
+    // data.opacity.set(initialStateLine.opacity),
+    // data.top.set(initialStateLine.top),
+    return {
+        // }
+        // variants: {
+        //       initial: "start",
+        //       animate: "visible",
+        //       variants: {variants},
+        // }
+        width: initialStateLine.width,
+        height: initialStateLine.height,
+        radius: initialStateLine.radius,
+        opacity: initialStateLine.opacity,
+        top: initialStateLine.top,
+        transition: {
+            delay: 1,
+            duration: 4,
+            ease: "linear",
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            velocity: 0.5,
+            stiffness: 100,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        animate: {
+            width: 360,
+            height: 3,
+            opacity: 1,
+            top: 0,
+        },
+    };
+};
+exports.CA = () => {
+    window["__checkBudget__"]();
+    return {
+        scaleX: initialStateCA.scaleX,
+        rotateX: initialStateCA.rotateX,
+        opacity: initialStateCA.opacity,
+        top: initialStateCA.top,
+        transformOrigin: initialStateCA.transformOrigin,
+        transition: {
+            delay: 2.5,
+            duration: 10,
+            ease: "backOut",
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            velocity: 0.5,
+            stiffness: 120,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        animate: {
+            scaleX: 1,
+            rotateX: 0,
+            opacity: 1,
+            top: 0,
+        },
+    };
+};
+exports.JSS = () => {
+    window["__checkBudget__"]();
+    return {
+        width: initialStateJSS.width,
+        rotateX: initialStateJSS.rotateX,
+        opacity: initialStateJSS.opacity,
+        top: initialStateJSS.top,
+        perspective: initialStateJSS.perspective,
+        transformOrigin: initialStateJSS.transformOrigin,
+        transition: {
+            delay: 4,
+            duration: 3,
+            ease: "linear",
+            springOptions: { tension: 400, friction: 30 },
+            type: "spring",
+            damping: 8,
+            mass: 0.75,
+            velocity: 0.5,
+            stiffness: 100,
+            bezierCurve: [0.2, 0.8, 0.2, 1],
+        },
+        animate: {
+            width: 360,
+            rotateX: 0,
+            opacity: 1,
+            top: 0,
+            perspective: 200,
+            transformOrigin: "top",
+        },
+    };
+};
+exports.__info__ = [{ name: "Background", type: "override" }, { name: "Line", type: "override" }, { name: "CA", type: "override" }, { name: "JSS", type: "override" }];
+
+
+/***/ }),
+
+/***/ "./code/canvas.tsx":
+/*!*************************!*\
+  !*** ./code/canvas.tsx ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+// WARNING: this file is auto generated, any changes will be lost
+const framer_1 = __webpack_require__(/*! framer */ "framer");
+const canvas = framer_1.CanvasStore.shared({"children":[]});
+
+
+/***/ }),
+
+/***/ "./package.js":
+/*!********************!*\
+  !*** ./package.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// The template for the dynamic webpack entry. Be aware of the variables
+
+const packageJson = __webpack_require__(/*! ./package.json */ "./package.json")
+
+const package = {
+    packageJson,
+    sourceModules: {},
+    dependencies: {},
+}
+
+// This is a special webpack thing that watches the whole directory
+// https://github.com/webpack/docs/wiki/context
+const ctx = __webpack_require__("./code sync recursive \\.(t|j)s(x?)|\\.css$")
+
+ctx.keys().forEach(key => {
+    package.sourceModules[key] = () => ctx(key)
+})
+
+// The packages are passed in through a template
+const packages = {}
+
+                packages["framer"] = () => {
+                    var package = {}
+                    try {
+                        package = __webpack_require__(/*! framer */ "framer")
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    package.__framer__ = package.__framer__ || {}
+                    package.__framer__.packageJson = {"name":"framer","version":"1.0.8","main":"build/framer.js","author":"Framer","license":"MIT","scripts":{"coverage":"jest --coverage","test":"jest","watch":"jest --watch"},"devDependencies":{"@microsoft/api-extractor":"^7.1.5","@types/chalk":"^2.2.0","@types/draft-js":"0.10.19","@types/enzyme":"^3.1.10","@types/enzyme-adapter-react-16":"^1.0.3","@types/hsluv":"https://github.com/framer/typed_hsluv#bump","@types/jest":"^23.0.0","@types/jest-diff":"^20.0.0","@types/jest-matcher-utils":"^21.0.1","@types/node":"^10.12.9","@types/react":"16.8.4","@types/react-dom":"^16.8","cache-loader":"^1.2.2","chalk":"^2.4.1","convert-tsconfig-paths-to-webpack-aliases":"^0.9.2","css.escape":"^1.5.1","draft-js":"0.10.4","enzyme":"^3.9.0","enzyme-adapter-react-16":"^1.9.1","eventemitter3":"^3.1.0","fork-ts-checker-webpack-plugin":"^0.4.1","framer-motion":"^0.18.2","hoist-non-react-statics":"^2.5.0","hsluv":"^0.0.3","immutable":"^3.8.2","jest":"^23.1.0","jest-diff":"^23.6.0","jest-dom":"^3.1.3","jest-junit":"^5.2.0","modclean":"^3.0.0-beta.1","progress-bar-webpack-plugin":"^1.11.0","raf":"^3.4.0","react":"^16.8","react-dev-utils":"^5.0.1","react-dom":"^16.8","react-testing-library":"^6.0.0","resize-observer-polyfill":"^1.5.1","semver":"^5.6.0","style-value-types":"^3.1.4","ts-jest":"^23.10.5","ts-loader":"^4.1.0","tslint":"^5.12.1","tslint-react-hooks":"^1.1.0","typescript":"3.3","watch":"^1.0.2","webpack":"^4.4.1","webpack-cli":"^3.1.2","webpack-dev-server":"^3.1.10","xcssmatrix":"^0.2.2"},"peerDependencies":{"react":"^16.8.2","react-dom":"^16.8.2"},"tsdoc":{"tsdocFlavor":"AEDoc"},"framer":{"components":[{"name":"Scroll","children":true,"properties":[{"key":"direction","title":"Direction","kind":"enum","options":["horizontal","vertical","both"]}]},{"name":"Page"},{"name":"Stack"},{"name":"FramerAppleWatch38","type":"device"},{"name":"FramerAppleWatch42","type":"device"},{"name":"FramerSonySmartWatch","type":"device"},{"name":"FramerAppleIPhoneSE","type":"device"},{"name":"FramerAppleIPhone8","type":"device"},{"name":"FramerAppleIPhone8Plus","type":"device"},{"name":"FramerAppleIPhoneXS","type":"device"},{"name":"FramerAppleIPhoneXR","type":"device"},{"name":"FramerAppleIPhoneXSMax","type":"device"},{"name":"FramerGooglePixel2","type":"device"},{"name":"FramerGooglePixel2XL","type":"device"},{"name":"FramerGooglePixel3","type":"device"},{"name":"FramerGooglePixel3XL","type":"device"},{"name":"FramerSamsungNote5","type":"device"},{"name":"FramerSamsungGalaxyS9","type":"device"},{"name":"FramerAppleIPadAir","type":"device"},{"name":"FramerAppleIPadMini","type":"device"},{"name":"FramerAppleIPadPro","type":"device"},{"name":"FramerGoogleNexusTablet","type":"device"},{"name":"FramerMicrosoftSurfacePro3","type":"device"},{"name":"FramerMicrosoftSurfacePro4","type":"device"},{"name":"FramerAppleIMac","type":"device"},{"name":"FramerAppleThunderboltDisplay","type":"device"},{"name":"FramerAppleMacBook","type":"device"},{"name":"FramerAppleMacBookAir","type":"device"},{"name":"FramerAppleMacBookPro","type":"device"},{"name":"FramerDellXPS","type":"device"},{"name":"FramerMicrosoftSurfaceBook","type":"device"},{"name":"FramerSonyW850C","type":"device"},{"name":"FramerStoreArtwork","type":"device"},{"name":"FramerStoreIcon","type":"device"}]}}
+                    return package
+                }
+
+package.dependencies = packages
+
+exports.__framer__ = package
+
+
+/***/ }),
+
+/***/ "./package.json":
+/*!**********************!*\
+  !*** ./package.json ***!
+  \**********************/
+/*! exports provided: main, license, devDependencies, peerDependencies, framer, author, default */
+/***/ (function(module) {
+
+module.exports = {"main":"dist/index.js","license":"MIT","devDependencies":{"@types/react":"^16.8"},"peerDependencies":{"framer":"^1.0","react":"^16.8"},"framer":{"id":"3cbe3ebb-8c17-403a-b802-ccb907281595"},"author":"Keith Kraus"};
+
+/***/ }),
+
+/***/ "framer":
+/*!******************************************************************************************!*\
+  !*** external {"root":"Framer","commonjs2":"framer","commonjs":"framer","amd":"framer"} ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_framer__;
+
+/***/ })
+
+/******/ });
+});
+        </script>
+        
+        <script>
+        const data = {
+  "presentationNode": {
+    "componentClass": "Frame",
+    "props": {
+      "key": "fXtBH06py",
+      "id": "id_fXtBH06py",
+      "willChangeTransform": false,
+      "_constraints": {
+        "enabled": true
+      },
+      "width": 960,
+      "height": 544,
+      "left": 0,
+      "top": 0,
+      "_border": {},
+      "visible": true,
+      "style": {
+        "rotate": 0,
+        "overflow": "hidden",
+        "backgroundColor": "rgba(0,119,200,1)"
+      },
+      "background": {
+        "r": 0,
+        "g": 119,
+        "b": 200,
+        "a": 1,
+        "h": 204.3,
+        "s": 1,
+        "l": 0.39215686274509803,
+        "initialValue": "rgba(0,119,200,1)",
+        "roundA": 1,
+        "format": "rgb"
+      },
+      "name": "CA_Screen_960X544"
+    },
+    "children": [
+      {
+        "componentClass": "Frame",
+        "props": {
+          "key": "Ygl652U28",
+          "id": "id_Ygl652U28",
+          "willChangeTransform": false,
+          "_constraints": {
+            "enabled": true
+          },
+          "width": 361,
+          "height": 238,
+          "left": "49.947916666666664%",
+          "top": "50%",
+          "center": true,
+          "_border": {},
+          "visible": true,
+          "style": {
+            "rotate": 0,
+            "overflow": "visible"
+          },
+          "background": null,
+          "name": "caFrame"
+        },
+        "children": [
+          {
+            "componentClass": "ComponentContainer",
+            "props": {
+              "key": "rLjjiTkFx",
+              "id": "id_rLjjiTkFx",
+              "willChangeTransform": false,
+              "_constraints": {
+                "enabled": true
+              },
+              "height": 50,
+              "left": 1,
+              "right": 0,
+              "bottom": 0,
+              "componentIdentifier": "framer/Stack",
+              "visible": true,
+              "style": {
+                "rotate": "0deg",
+                "opacity": 1
+              },
+              "name": "Jetscan stack"
+            },
+            "children": [
+              {
+                "componentClass": "framer/Stack",
+                "props": {
+                  "width": 360,
+                  "height": 50,
+                  "background": null,
+                  "_border": {},
+                  "style": {
+                    "overflow": "visible"
+                  },
+                  "direction": "vertical",
+                  "distribution": "space-between",
+                  "alignment": "center",
+                  "gap": 10,
+                  "padding": 0,
+                  "paddingPerSide": false,
+                  "paddingTop": 0,
+                  "paddingRight": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "__fromCodeComponentNode": true,
+                  "placeholders": null,
+                  "id": "rLjjiTkFxframer/Stack",
+                  "key": "rLjjiTkFxframer/Stack"
+                },
+                "children": [
+                  {
+                    "componentClass": "Frame",
+                    "props": {
+                      "key": "mtjkkvMnF",
+                      "id": "id_mtjkkvMnF",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true
+                      },
+                      "width": 360,
+                      "height": 50,
+                      "_border": {},
+                      "visible": true,
+                      "style": {
+                        "rotate": 0,
+                        "overflow": "visible"
+                      },
+                      "background": null,
+                      "name": "JetScan_original"
+                    },
+                    "children": [
+                      {
+                        "componentClass": "SVG",
+                        "props": {
+                          "key": "BW8U38gB8",
+                          "id": "id_BW8U38gB8",
+                          "willChangeTransform": false,
+                          "opacity": 1,
+                          "_constraints": {
+                            "enabled": true,
+                            "intrinsicWidth": 304,
+                            "intrinsicHeight": 36
+                          },
+                          "height": 36,
+                          "left": 28,
+                          "right": 28,
+                          "top": 7,
+                          "rotation": 0,
+                          "svg": "<?xml version=\"1.0\"?><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"304\" height=\"36\"><path d=\"M14.6 3.924V25.55c0 3.596-.777 6.194-2.33 7.793-1.554 1.6-4.03 2.4-7.427 2.4-1.96 0-3.482-.161-4.569-.483v-4.545c1.714.122 2.923.184 3.627.184 1.883 0 3.169-.352 3.857-1.056.689-.704 1.033-2.135 1.033-4.293V3.924H14.6zm24.674 23.944l4.729.643c-.612 2.097-1.806 3.826-3.581 5.188-1.776 1.362-4.003 2.044-6.68 2.044-3.215 0-5.801-1.08-7.76-3.237-1.96-2.158-2.939-5.082-2.939-8.77 0-3.505.987-6.405 2.962-8.7 1.974-2.297 4.652-3.444 8.035-3.444 3.305 0 5.861 1.132 7.667 3.397 1.806 2.265 2.71 5.173 2.71 8.724l-.024.597h-15.91c0 1.576.15 2.839.449 3.788.298.949.891 1.775 1.779 2.48.887.703 1.997 1.055 3.329 1.055 2.586 0 4.33-1.255 5.234-3.765zm-.322-6.933c-.015-1.668-.516-3.03-1.503-4.086-.988-1.056-2.208-1.584-3.662-1.584-1.439 0-2.64.493-3.604 1.48-.964.988-1.53 2.384-1.7 4.19h10.47zm24.353 10.239v4.086c-1.56.337-2.77.505-3.627.505-1.408 0-2.617-.279-3.627-.837-1.01-.56-1.749-1.324-2.216-2.296-.466-.972-.7-2.468-.7-4.488V16.137h-2.892v-4.063h3.19l.483-6.038 4.293-.39v6.428h4.66v4.063h-4.66v11.318c0 1.454.264 2.445.792 2.973s1.526.792 2.996.792c.413 0 .85-.015 1.308-.046zm5.07-3.466l5.486-1.171c.658 3.107 3.183 4.66 7.576 4.66 2.005 0 3.547-.398 4.626-1.194 1.079-.796 1.618-1.783 1.618-2.961 0-.857-.245-1.65-.735-2.376-.49-.727-1.538-1.297-3.145-1.71l-5.991-1.562c-2.051-.535-3.566-1.144-4.546-1.825-.98-.68-1.764-1.641-2.353-2.88a9.135 9.135 0 0 1-.884-3.972c0-2.801 1.04-5.047 3.122-6.738 2.082-1.692 4.745-2.537 7.99-2.537 2.693 0 5.1.59 7.22 1.768 2.119 1.178 3.47 2.846 4.051 5.004l-5.372 1.332c-.826-2.373-2.755-3.559-5.785-3.559-1.76 0-3.103.368-4.029 1.102-.926.735-1.389 1.669-1.389 2.801 0 1.79 1.454 3.046 4.362 3.765l5.326 1.332c3.23.81 5.395 2.008 6.497 3.592 1.102 1.584 1.653 3.333 1.653 5.246 0 3.076-1.16 5.498-3.478 7.266-2.319 1.768-5.322 2.652-9.01 2.652-3.108 0-5.828-.65-8.162-1.952-2.334-1.3-3.884-3.329-4.649-6.083zm46.873-.965l4.5.46c-.582 2.907-1.707 5.058-3.375 6.45-1.668 1.393-3.68 2.09-6.038 2.09-3.199 0-5.659-1.167-7.38-3.501-1.722-2.334-2.583-5.193-2.583-8.575 0-3.49.941-6.374 2.823-8.655 1.883-2.28 4.393-3.42 7.53-3.42 5.051 0 8.058 2.663 9.023 7.989l-4.5.62c-.398-2.878-1.814-4.316-4.247-4.316-1.775 0-3.065.776-3.868 2.33-.804 1.553-1.206 3.432-1.206 5.636 0 2.341.417 4.147 1.252 5.418.834 1.27 2 1.905 3.5 1.905 2.296 0 3.819-1.477 4.569-4.43zm31.998 8.517h-4.982c-.444-1.408-.712-2.969-.804-4.683-1.392 3.444-4.01 5.166-7.85 5.166-2.312 0-4.168-.678-5.568-2.032-1.4-1.355-2.1-3.057-2.1-5.108 0-5.326 4.675-7.99 14.026-7.99.367 0 .865.008 1.492.024v-1.745c0-2.403-1.637-3.604-4.912-3.604-3.184 0-4.99 1.201-5.418 3.604l-4.454-.666c.245-1.928 1.24-3.516 2.984-4.763 1.745-1.248 4.27-1.871 7.576-1.871 1.79 0 3.253.149 4.385.447 1.133.299 2.09.804 2.87 1.515.78.712 1.32 1.485 1.618 2.32.299.833.448 2.245.448 4.235v10.468c0 1.515.23 3.076.689 4.683zm-5.786-11.8c-6.764 0-10.147 1.615-10.147 4.844 0 .965.34 1.787 1.022 2.468.681.681 1.71 1.022 3.088 1.022 1.99 0 3.493-.631 4.51-1.894 1.019-1.263 1.527-2.698 1.527-4.305V23.46zm34.202 11.8h-5.234V20.774c0-1.53-.352-2.682-1.056-3.455-.704-.772-1.554-1.159-2.549-1.159-1.362 0-2.555.597-3.58 1.79-1.026 1.195-1.539 2.993-1.539 5.396V35.26h-5.234V12.074h4.775v5.372c1.668-3.903 4.01-5.854 7.025-5.854 2.035 0 3.776.642 5.222 1.928 1.447 1.286 2.17 3.543 2.17 6.772V35.26zm24.696-24.946c0 2.553-.91 4.746-2.728 6.579-1.82 1.832-4.001 2.748-6.546 2.748-2.563 0-4.758-.916-6.586-2.748-1.828-1.833-2.742-4.03-2.742-6.592 0-2.563.912-4.758 2.736-6.586 1.823-1.828 4.03-2.742 6.618-2.742 2.545 0 4.722.914 6.533 2.742 1.81 1.828 2.715 4.028 2.715 6.599zm-1.666-.013c0-2.143-.745-3.984-2.236-5.523-1.492-1.54-3.278-2.31-5.36-2.31-2.124 0-3.935.768-5.43 2.303-1.496 1.535-2.244 3.378-2.244 5.53 0 2.168.75 4.018 2.25 5.549 1.5 1.53 3.3 2.295 5.398 2.295 2.082 0 3.873-.765 5.372-2.295 1.5-1.53 2.25-3.38 2.25-5.55zm-2.951 5.378h-2.414l-1.745-4.342h-2.571v4.342h-2.296V4.935h4.985c1.364 0 2.381.298 3.05.892.67.595 1.004 1.36 1.004 2.296 0 1.338-.665 2.283-1.994 2.833l1.98 4.723zm-6.73-6.047h2.361c1.338 0 2.007-.512 2.007-1.535 0-.98-.612-1.47-1.836-1.47h-2.532v3.005zm54.456 25.628h-6.588l-6.933-12.35-7.347 12.35h-5.257l9.918-16.322-8.517-15.014h6.565l5.786 10.422 6.13-10.422h5.28l-8.724 14.302 9.687 17.034zm16.026-4.086v4.086c-1.561.337-2.77.505-3.628.505-1.408 0-2.617-.279-3.627-.837-1.01-.56-1.748-1.324-2.215-2.296-.467-.972-.7-2.468-.7-4.488V16.137h-2.893v-4.063h3.191l.482-6.038 4.293-.39v6.428h4.66v4.063h-4.66v11.318c0 1.454.264 2.445.792 2.973s1.527.792 2.996.792c.413 0 .85-.015 1.309-.046zm11.525 4.086h-5.234V12.074h4.73v5.532c.672-2.158 1.598-3.734 2.777-4.729 1.178-.995 2.387-1.492 3.627-1.492.168 0 .398.008.689.023v5.624c-2.663 0-4.427.85-5.292 2.549-.865 1.699-1.297 3.344-1.297 4.935V35.26zm32.072 0h-4.981c-.444-1.408-.712-2.969-.804-4.683-1.393 3.444-4.01 5.166-7.851 5.166-2.311 0-4.167-.678-5.567-2.032-1.4-1.355-2.1-3.057-2.1-5.108 0-5.326 4.675-7.99 14.026-7.99.367 0 .865.008 1.492.024v-1.745c0-2.403-1.638-3.604-4.913-3.604-3.183 0-4.99 1.201-5.418 3.604l-4.453-.666c.245-1.928 1.24-3.516 2.984-4.763 1.745-1.248 4.27-1.871 7.576-1.871 1.79 0 3.252.149 4.385.447 1.132.299 2.089.804 2.87 1.515.78.712 1.32 1.485 1.618 2.32.298.833.448 2.245.448 4.235v10.468c0 1.515.23 3.076.688 4.683zm-5.785-11.8c-6.765 0-10.147 1.615-10.147 4.844 0 .965.34 1.787 1.022 2.468.68.681 1.71 1.022 3.087 1.022 1.99 0 3.494-.631 4.511-1.894 1.018-1.263 1.527-2.698 1.527-4.305V23.46z\" fill=\"#FFF\"></path></svg>",
+                          "visible": true,
+                          "intrinsicHeight": 36,
+                          "intrinsicWidth": 304
+                        },
+                        "children": []
+                      }
+                    ],
+                    "codeOverrideIdentifier": "./Test_2.tsx_JSS"
+                  }
+                ]
+              }
+            ],
+            "codeOverrideIdentifier": "./App.tsx_Logo2Animation"
+          },
+          {
+            "componentClass": "Frame",
+            "props": {
+              "key": "EhSkU8Np0",
+              "id": "id_EhSkU8Np0",
+              "willChangeTransform": false,
+              "_constraints": {
+                "enabled": true
+              },
+              "height": 80,
+              "left": 1,
+              "right": 1,
+              "top": 0,
+              "_border": {},
+              "visible": true,
+              "style": {
+                "rotate": 0,
+                "overflow": "visible"
+              },
+              "background": null,
+              "name": "CA-frame"
+            },
+            "children": [
+              {
+                "componentClass": "SVG",
+                "props": {
+                  "key": "V9GMC9jRC",
+                  "id": "id_V9GMC9jRC",
+                  "willChangeTransform": false,
+                  "opacity": 1,
+                  "_constraints": {
+                    "enabled": true,
+                    "intrinsicWidth": 359,
+                    "intrinsicHeight": 80
+                  },
+                  "height": 80,
+                  "left": 0,
+                  "right": 0,
+                  "top": 0,
+                  "rotation": 0,
+                  "svg": "<?xml version=\"1.0\"?><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"359\" height=\"80\"><path d=\"M120.568 29.811c-.19.678-.316 1.349-.38 2.012-2.556 1.296-5.776 1.942-9.657 1.942-2.75 0-5.204-.386-7.365-1.161-2.163-.773-3.995-1.862-5.492-3.267a14.027 14.027 0 0 1-3.434-4.994c-.79-1.928-1.184-4.01-1.184-6.254 0-3.283.513-6.066 1.539-8.355 1.025-2.292 2.398-4.154 4.119-5.59 1.72-1.434 3.718-2.484 5.99-3.148C106.978.333 109.362 0 111.856 0c.82 0 1.687.066 2.605.19.914.128 1.799.294 2.652.498.85.206 1.665.45 2.44.734.77.284 1.427.585 1.964.899a15.04 15.04 0 0 0-.737 2.392 17.938 17.938 0 0 0-.352 2.44h-.663c-1.201-1.517-2.433-2.598-3.695-3.245-1.263-.646-2.746-.972-4.452-.972-1.261 0-2.533.284-3.81.853-1.28.569-2.439 1.439-3.481 2.605-1.04 1.17-1.886 2.66-2.533 4.475-.649 1.815-.972 3.985-.972 6.51 0 2.433.333 4.507.994 6.227.664 1.721 1.524 3.126 2.581 4.217 1.057 1.089 2.258 1.886 3.6 2.391a11.41 11.41 0 0 0 4.049.756 10.7 10.7 0 0 0 2.32-.26 15.09 15.09 0 0 0 2.32-.71 11.98 11.98 0 0 0 2.155-1.113 9.704 9.704 0 0 0 1.777-1.467l.614.379a22.917 22.917 0 0 0-.663 2.012m19.391 3.314c-1.752-.425-3.276-1.135-4.569-2.131-1.295-.994-2.316-2.273-3.055-3.835-.74-1.563-1.113-3.464-1.113-5.707 0-1.261.008-2.391.025-3.385.014-.994.021-1.918.021-2.77 0-.854.01-1.673.027-2.463.012-.79.02-1.609.02-2.462 0-2.557-.015-4.625-.047-6.205-.031-1.577-.077-2.76-.14-3.55.629.063 1.278.119 1.941.165a26.475 26.475 0 0 0 3.882 0 64.49 64.49 0 0 0 1.942-.165c-.316 3.062-.506 5.913-.567 8.547a322.891 322.891 0 0 0-.095 8.028c0 2.87.205 5.193.615 6.96.409 1.77 1.019 3.133 1.823 4.096.807.964 1.791 1.604 2.96 1.917 1.167.316 2.526.474 4.074.474 1.893 0 3.375-.474 4.45-1.42 1.071-.947 1.886-2.21 2.44-3.79.551-1.576.89-3.384 1.016-5.42.126-2.037.192-4.159.192-6.37A227.333 227.333 0 0 0 155.42.617c.442.063.868.119 1.278.165a9.695 9.695 0 0 0 2.322 0c.379-.046.772-.102 1.183-.165a80.265 80.265 0 0 0-.19 2.795 321.362 321.362 0 0 0-.354 9.113 223.15 223.15 0 0 0-.07 5.85c0 5.493-1.184 9.433-3.554 11.814-2.367 2.385-5.84 3.576-10.417 3.576-2.02 0-3.905-.214-5.658-.64m35.822-10.583l-.758 10.606a6.856 6.856 0 0 0-1.135-.094h-2.202a6.75 6.75 0 0 0-1.113.094 432.408 432.408 0 0 0 2.698-16.193 622.249 622.249 0 0 0 2.18-16.337c.347.063.67.116.97.165a6.228 6.228 0 0 0 1.871 0c.316-.049.646-.102.994-.165a306.858 306.858 0 0 0 2.676 5.774c.93 1.96 1.861 3.908 2.792 5.85a381.49 381.49 0 0 0 2.795 5.707 736.22 736.22 0 0 0 2.676 5.303 309.254 309.254 0 0 0 5.658-11.104 384.508 384.508 0 0 0 5.374-11.53c.79.158 1.47.236 2.036.236.537 0 1.2-.078 1.99-.236.317 2.715.654 5.633 1.019 8.759.362 3.125.717 6.18 1.067 9.165.345 2.982.693 5.77 1.04 8.355.348 2.589.664 4.674.946 6.251a19.188 19.188 0 0 0-1.918-.094h-3.857c-.663 0-1.327.031-1.99.094a224.078 224.078 0 0 0-.783-10.557c-.362-3.792-.732-7.546-1.11-11.272h-.096c-1.798 3.726-3.567 7.386-5.303 10.985a1111.56 1111.56 0 0 0-5.162 10.844 4.443 4.443 0 0 0-.9-.095 4.453 4.453 0 0 0-.9.095c-1.704-3.533-3.403-7.07-5.09-10.606a871.515 871.515 0 0 0-5.232-10.75h-.095a161.392 161.392 0 0 0-1.138 10.75m50.953 0c-.253 3.536-.503 7.073-.758 10.606a6.856 6.856 0 0 0-1.135-.094h-2.202c-.362 0-.734.031-1.116.094a432.51 432.51 0 0 0 2.703-16.193A622.368 622.368 0 0 0 226.402.618c.348.063.673.116.975.165a6.287 6.287 0 0 0 1.869 0c.313-.049.646-.102.994-.165a306.86 306.86 0 0 0 2.675 5.774c.931 1.96 1.862 3.908 2.793 5.85a406.655 406.655 0 0 0 2.795 5.707c.93 1.862 1.823 3.63 2.676 5.303a313.305 313.305 0 0 0 5.658-11.104A390.642 390.642 0 0 0 252.21.618c.79.158 1.47.236 2.037.236.537 0 1.2-.078 1.99-.236.319 2.715.654 5.633 1.021 8.759.36 3.125.717 6.18 1.062 9.165.348 2.982.695 5.77 1.043 8.355.347 2.589.66 4.674.945 6.251a19.224 19.224 0 0 0-1.917-.094h-3.858c-.663 0-1.324.031-1.99.094a223.9 223.9 0 0 0-.78-10.557c-.365-3.792-.734-7.546-1.113-11.272h-.095c-1.798 3.726-3.568 7.386-5.303 10.985-1.738 3.6-3.458 7.216-5.165 10.844a4.492 4.492 0 0 0-.897-.095 4.492 4.492 0 0 0-.901.095c-1.704-3.533-3.403-7.07-5.09-10.606a838.003 838.003 0 0 0-5.232-10.75h-.095a161.392 161.392 0 0 0-1.137 10.75M274.941 6.75a201.676 201.676 0 0 0-.284-6.132c.537.063 1.123.116 1.752.165.632.046 1.342.07 2.132.07s1.5-.024 2.131-.07a44.03 44.03 0 0 0 1.752-.165 186.637 186.637 0 0 0-.284 6.132 227.79 227.79 0 0 0-.095 6.985v6.438c0 2.622.032 4.95.095 6.987.06 2.034.156 4.032.284 5.988a15.038 15.038 0 0 0-1.752-.094h-4.263c-.63 0-1.215.031-1.752.094.126-1.956.221-3.954.284-5.988.064-2.037.098-4.365.098-6.987v-6.438c0-2.623-.034-4.949-.098-6.985m23.725-2.203c-.063-1.482-.11-2.792-.143-3.93.884.158 1.596.236 2.131.236.537 0 1.247-.078 2.131-.236a2657.34 2657.34 0 0 0 10.208 11.27 1727.84 1727.84 0 0 0 10.341 11.27v-8.713c0-1.546-.01-3.07-.02-4.57-.016-1.499-.03-2.88-.048-4.143a85.056 85.056 0 0 0-.095-3.267c-.048-.916-.102-1.53-.165-1.847.882.158 1.595.236 2.132.236.534 0 1.244-.078 2.129-.236a587.976 587.976 0 0 0-.612 14.349 234.778 234.778 0 0 0-.12 6.086c-.02 2.003-.024 4.144-.024 6.416v5.682a18.785 18.785 0 0 0-1.942-.097c-.695 0-1.31.032-1.852.097-6.496-7.578-13.396-15.202-20.69-22.874a148.731 148.731 0 0 0-.092 5.54v5.494c0 1.895.007 3.504.022 4.831.014 1.327.039 2.448.07 3.364.032.914.063 1.665.095 2.248.034.586.063 1.047.095 1.397a6.628 6.628 0 0 0-1.135-.097h-1.091c-.727 0-1.454.032-2.183.097.068-.252.146-1.154.243-2.7.092-1.548.197-3.431.306-5.66.11-2.224.207-4.64.285-7.243.075-2.605.119-5.106.119-7.507 0-2.178-.034-4.008-.095-5.493m50.241-1.61c-1.451 0-2.635.428-3.551 1.278-.914.853-1.371 1.847-1.371 2.985 0 1.166.355 2.121 1.065 2.863.71.743 1.601 1.414 2.675 2.015a44.45 44.45 0 0 0 3.456 1.728 17.86 17.86 0 0 1 3.456 2.036 10.506 10.506 0 0 1 2.676 2.936c.712 1.152 1.067 2.627 1.067 4.426 0 1.58-.301 3.023-.902 4.336a9.498 9.498 0 0 1-2.556 3.36c-1.104.932-2.42 1.641-3.955 2.13-1.528.49-3.242.736-5.137.736-1.704 0-3.228-.184-4.57-.547-1.341-.36-2.36-.811-3.052-1.348.314-1.106.583-2.115.804-3.031.222-.916.411-1.908.567-2.982h.899a6.26 6.26 0 0 0 .712 1.964 6.21 6.21 0 0 0 1.325 1.633c.54.474 1.183.846 1.944 1.113.75.27 1.609.403 2.557.403 1.89 0 3.29-.474 4.187-1.421.902-.946 1.352-2.083 1.352-3.408 0-1.2-.35-2.18-1.043-2.938-.693-.756-1.56-1.427-2.605-2.01a41.964 41.964 0 0 0-3.408-1.706 17.389 17.389 0 0 1-3.41-2.013 10.26 10.26 0 0 1-2.605-2.911c-.693-1.152-1.04-2.63-1.04-4.428 0-1.64.289-3.094.877-4.358.581-1.261 1.364-2.321 2.343-3.172.977-.853 2.107-1.5 3.386-1.942a12.291 12.291 0 0 1 4.049-.663c1.703 0 3.195.207 4.474.615 1.278.413 2.374.98 3.29 1.706a28.43 28.43 0 0 0-.73 2.107c-.208.68-.47 1.539-.786 2.581h-.71c-1.008-2.715-2.919-4.073-5.73-4.073M139.284 52.503c-.063-2.058-.16-4.124-.287-6.2.542.066 1.133.122 1.772.168.639.049 1.356.073 2.156.073.794 0 1.514-.024 2.153-.073a37.27 37.27 0 0 0 1.772-.168 205.995 205.995 0 0 0-.287 6.2 225.374 225.374 0 0 0-.095 7.063v6.513c0 1.82.005 3.578.022 5.27.017 1.691.039 3.159.073 4.4 1.82 0 3.638-.043 5.458-.14a86.067 86.067 0 0 0 5.508-.474c-.066.347-.112.666-.144.955-.031.287-.048.685-.048 1.193 0 .513.017.912.048 1.196.032.292.078.528.144.722-.863-.032-1.925-.056-3.187-.07a395.62 395.62 0 0 0-5.193-.03h-7.59c-.72 0-1.262.012-1.629.03-.367.014-.678.038-.933.07.126-1.978.224-3.998.287-6.057.063-2.058.095-4.413.095-7.065v-6.513c0-2.65-.032-5.002-.095-7.063m36.106 0c-.062-2.058-.16-4.124-.286-6.2.542.066 1.133.122 1.772.168.639.049 1.353.073 2.155.073.798 0 1.515-.024 2.154-.073a37.27 37.27 0 0 0 1.772-.168 205.995 205.995 0 0 0-.287 6.2 233.078 233.078 0 0 0-.095 7.063v6.513c0 1.82.005 3.578.022 5.27.017 1.691.039 3.159.073 4.4 1.82 0 3.638-.043 5.458-.14a86.067 86.067 0 0 0 5.508-.474c-.066.347-.112.666-.144.955-.031.287-.048.685-.048 1.193 0 .513.017.912.048 1.196.032.292.078.528.144.722-.863-.032-1.925-.056-3.187-.07a395.9 395.9 0 0 0-5.193-.03h-7.59c-.72 0-1.262.012-1.629.03-.367.014-.678.038-.933.07.126-1.978.224-3.998.287-6.057.063-2.058.095-4.413.095-7.065v-6.513c0-2.65-.032-5.002-.095-7.063m35.339 0c-.062-2.058-.16-4.124-.286-6.2.542.066 1.132.122 1.772.168.636.049 1.356.073 2.153.073.8 0 1.517-.024 2.156-.073a37.577 37.577 0 0 0 1.771-.168 205.995 205.995 0 0 0-.286 6.2 224.759 224.759 0 0 0-.098 7.063v6.513c0 2.652.032 5.007.098 7.065.063 2.059.16 4.079.286 6.057-.544-.066-1.135-.1-1.771-.1h-4.309c-.64 0-1.23.034-1.772.1.126-1.978.224-3.998.287-6.057.063-2.058.097-4.413.097-7.065v-6.513c0-2.65-.034-5.002-.097-7.063m38.117-3.854c-1.468 0-2.666.432-3.592 1.293-.924.862-1.39 1.869-1.39 3.016 0 1.183.362 2.148 1.079 2.9.717.748 1.62 1.428 2.705 2.033a44.592 44.592 0 0 0 3.495 1.748 18.288 18.288 0 0 1 3.497 2.06 10.683 10.683 0 0 1 2.705 2.968c.72 1.167 1.076 2.66 1.076 4.477 0 1.597-.303 3.055-.91 4.38a9.617 9.617 0 0 1-2.584 3.402c-1.118.94-2.453 1.658-4 2.156-1.547.496-3.28.741-5.195.741-1.723 0-3.264-.185-4.622-.55-1.356-.366-2.387-.82-3.087-1.365.319-1.118.59-2.139.814-3.065a33.41 33.41 0 0 0 .574-3.016h.909c.129.703.37 1.366.72 1.986a6.353 6.353 0 0 0 1.341 1.652c.542.48 1.198.856 1.961 1.126.766.27 1.629.408 2.589.408 1.915 0 3.327-.479 4.236-1.439.909-.957 1.366-2.104 1.366-3.446 0-1.215-.353-2.202-1.055-2.97-.702-.766-1.58-1.444-2.632-2.034a43.817 43.817 0 0 0-3.449-1.726 17.611 17.611 0 0 1-3.449-2.034 10.352 10.352 0 0 1-2.632-2.946c-.702-1.164-1.052-2.656-1.052-4.476 0-1.658.294-3.128.887-4.404.588-1.279 1.378-2.348 2.367-3.208a10.247 10.247 0 0 1 3.425-1.964 12.433 12.433 0 0 1 4.095-.67c1.723 0 3.232.208 4.523.621 1.295.416 2.403.99 3.33 1.723-.29.734-.535 1.447-.742 2.132-.209.688-.471 1.558-.792 2.61h-.717c-1.02-2.746-2.953-4.12-5.794-4.12m26.697 7.519a16.664 16.664 0 0 1 3.709-5.458c1.597-1.563 3.526-2.793 5.796-3.687 2.265-.895 4.79-1.342 7.566-1.342 2.552 0 4.931.353 7.136 1.055 2.202.702 4.117 1.755 5.745 3.16 1.628 1.404 2.912 3.183 3.855 5.339.94 2.156 1.412 4.669 1.412 7.541 0 2.397-.455 4.63-1.366 6.706a16.773 16.773 0 0 1-3.782 5.434c-1.611 1.548-3.536 2.754-5.77 3.617-2.233.86-4.693 1.293-7.37 1.293-2.529 0-4.896-.314-7.115-.936-2.219-.622-4.15-1.628-5.794-3.014-1.645-1.392-2.945-3.162-3.903-5.317-.957-2.156-1.436-4.732-1.436-7.734 0-2.362.435-4.581 1.317-6.657zm26.6.025c-.512-1.643-1.222-3.04-2.13-4.19a9.328 9.328 0 0 0-3.304-2.657c-1.295-.624-2.707-.935-4.236-.935-1.63 0-3.091.39-4.384 1.173-1.293.783-2.387 1.845-3.281 3.184-.895 1.342-1.573 2.914-2.035 4.718-.464 1.803-.697 3.728-.697 5.77 0 2.556.272 4.71.817 6.464.541 1.757 1.275 3.17 2.201 4.239.926 1.069 1.996 1.844 3.211 2.326a10.44 10.44 0 0 0 3.83.717 9.667 9.667 0 0 0 4.117-.912c1.31-.607 2.45-1.529 3.422-2.778.975-1.247 1.757-2.826 2.348-4.74.59-1.917.885-4.182.885-6.802 0-2.073-.256-3.932-.763-5.577zm26.481-5.914a323.46 323.46 0 0 1-.146-3.973c.897.158 1.614.238 2.156.238s1.263-.08 2.155-.238c3.48 3.861 6.922 7.66 10.32 11.396 3.397 3.735 6.888 7.534 10.463 11.396v-8.81c0-1.566-.008-3.104-.025-4.623-.014-1.514-.031-2.912-.048-4.188a82.107 82.107 0 0 0-.095-3.305c-.046-.926-.105-1.548-.165-1.866.892.158 1.609.238 2.155.238.54 0 1.257-.08 2.151-.238a571.252 571.252 0 0 0-.62 14.507 265.017 265.017 0 0 0-.121 6.156 898.106 898.106 0 0 0-.024 6.486v5.748a19.154 19.154 0 0 0-1.964-.095c-.702 0-1.325.03-1.867.095a612.487 612.487 0 0 0-20.928-23.13c-.029.926-.053 1.852-.07 2.778-.017.926-.027 1.867-.027 2.824v5.556c0 1.915.01 3.544.027 4.885.017 1.34.041 2.472.07 3.4.032.926.066 1.685.098 2.273.031.593.063 1.062.1 1.414a6.884 6.884 0 0 0-1.153-.095h-1.1c-.737 0-1.469.03-2.203.095.061-.257.141-1.169.236-2.73a405.77 405.77 0 0 0 .6-13.05c.078-2.632.12-5.162.12-7.588 0-2.204-.032-4.054-.095-5.556M122.669 79.202a25.6 25.6 0 0 0-2.18-.098h-4.071c-.686 0-1.364.032-2.035.098a830.14 830.14 0 0 0-1.58-4.79 153.808 153.808 0 0 0-1.722-4.883 184.257 184.257 0 0 0-6.13-.097 121.55 121.55 0 0 0-4.982.097 102.623 102.623 0 0 0-1.772 4.882 116.722 116.722 0 0 0-1.485 4.79 6.636 6.636 0 0 0-1.123-.097h-2.277c-.382 0-.797.032-1.244.098.384-.831.894-1.979 1.533-3.449a314.28 314.28 0 0 0 2.107-4.982c.766-1.847 1.587-3.835 2.465-5.96.88-2.121 1.757-4.27 2.634-6.44.878-2.17 1.74-4.31 2.586-6.416a475.44 475.44 0 0 0 2.324-5.892c.318.066.622.122.911.168.287.049.588.073.909.073.318 0 .62-.024.909-.073.287-.046.59-.102.911-.168 1.019 2.715 2.112 5.62 3.279 8.716a568.101 568.101 0 0 0 3.52 9.123 511.782 511.782 0 0 0 3.448 8.5c1.115 2.68 2.139 4.948 3.065 6.8zm-16.952-23.896a176.352 176.352 0 0 0-2.348 5.673 218.852 218.852 0 0 0-2.153 5.723h8.761a959.065 959.065 0 0 0-2.083-5.723 214.188 214.188 0 0 0-2.177-5.673zM29.79 52.733c2.792 0 6.014-1.305 7.888-3.266l.566.35c-.476 1.22-.826 2.484-.957 3.704-2.311 1.22-5.318 1.917-8.89 1.917-10.113 0-16.085-6.319-16.085-14.558 0-12.032 8.15-16.65 17.302-16.65 3.053 0 6.888.914 8.895 2.136-.568 1.439-.872 2.963-1.003 4.445h-.61c-2.18-2.702-4.404-3.879-7.5-3.879-4.662 0-9.938 4.054-9.938 13.295 0 8.98 5.322 12.506 10.331 12.506zM0 79.11h78.48V.63H0v78.48zm63.73-24.457c-1.218 0-2.482.132-3.702.217a181.175 181.175 0 0 0-3.009-8.934c-1.874-.044-3.704-.088-5.575-.088-1.529 0-3.009.044-4.535.088-1.177 2.962-2.137 5.927-2.963 8.934-.7-.085-1.354-.217-2.051-.217-.695 0-1.349.132-2.178.217 2.137-4.837 8.672-20.352 12.422-30.293.564.09 1.091.222 1.657.222.564 0 1.09-.132 1.656-.222 3.703 9.94 8.807 23.191 12.117 30.293-1.397-.085-2.617-.217-3.84-.217zM48.04 43.366h7.98c-1.267-3.532-2.487-6.978-3.882-10.376a164.29 164.29 0 0 0-4.098 10.376\" fill=\"#FFF\" fill-rule=\"evenodd\"></path></svg>",
+                  "visible": true,
+                  "intrinsicHeight": 80,
+                  "intrinsicWidth": 359
+                },
+                "children": []
+              }
+            ],
+            "codeOverrideIdentifier": "./Test_2.tsx_CA"
+          },
+          {
+            "componentClass": "ComponentContainer",
+            "props": {
+              "key": "NXckMZyoU",
+              "id": "id_NXckMZyoU",
+              "willChangeTransform": false,
+              "_constraints": {
+                "enabled": true
+              },
+              "height": 3,
+              "left": 1,
+              "right": 0,
+              "bottom": 77,
+              "componentIdentifier": "framer/Stack",
+              "visible": true,
+              "style": {
+                "rotate": "0deg",
+                "opacity": 1
+              },
+              "name": "Line-Stack"
+            },
+            "children": [
+              {
+                "componentClass": "framer/Stack",
+                "props": {
+                  "width": 360,
+                  "height": 3,
+                  "background": null,
+                  "_border": {},
+                  "style": {
+                    "overflow": "visible"
+                  },
+                  "direction": "vertical",
+                  "distribution": "space-between",
+                  "alignment": "center",
+                  "gap": 10,
+                  "padding": 0,
+                  "paddingPerSide": false,
+                  "paddingTop": 0,
+                  "paddingRight": 0,
+                  "paddingBottom": 0,
+                  "paddingLeft": 0,
+                  "__fromCodeComponentNode": true,
+                  "placeholders": null,
+                  "id": "NXckMZyoUframer/Stack",
+                  "key": "NXckMZyoUframer/Stack"
+                },
+                "children": [
+                  {
+                    "componentClass": "Frame",
+                    "props": {
+                      "key": "UTcbI8he5",
+                      "id": "id_UTcbI8he5",
+                      "willChangeTransform": false,
+                      "_constraints": {
+                        "enabled": true
+                      },
+                      "width": 360,
+                      "height": 3,
+                      "_border": {},
+                      "visible": true,
+                      "style": {
+                        "rotate": 0,
+                        "overflow": "visible"
+                      },
+                      "background": null,
+                      "name": "Line-Frame"
+                    },
+                    "children": [
+                      {
+                        "componentClass": "Frame",
+                        "props": {
+                          "key": "jTxB6gDyY",
+                          "id": "id_jTxB6gDyY",
+                          "willChangeTransform": false,
+                          "_constraints": {
+                            "enabled": true
+                          },
+                          "width": 360,
+                          "height": 3,
+                          "left": "50%",
+                          "top": "50%",
+                          "center": true,
+                          "_border": {},
+                          "visible": true,
+                          "overflow": "hidden",
+                          "style": {
+                            "backgroundColor": "rgb(255, 255, 255)"
+                          },
+                          "background": {
+                            "r": 255,
+                            "g": 255,
+                            "b": 255,
+                            "a": 1,
+                            "h": 0,
+                            "s": 0,
+                            "l": 1,
+                            "initialValue": "rgb(255, 255, 255)",
+                            "roundA": 1,
+                            "format": "rgb"
+                          }
+                        },
+                        "children": [
+                          {
+                            "componentClass": "Vector",
+                            "props": {
+                              "key": "id_VR67CU4qI",
+                              "id": "VR67CU4qI",
+                              "willChangeTransform": false,
+                              "isRootVectorNode": true,
+                              "calculatedPath": [
+                                {
+                                  "pathSegments": [
+                                    {
+                                      "x": 0,
+                                      "y": 2.430379746835115,
+                                      "handleMirroring": "straight",
+                                      "handleOutX": 0,
+                                      "handleOutY": 0,
+                                      "handleInX": 0,
+                                      "handleInY": 0,
+                                      "radius": 0,
+                                      "__class": "PathSegment"
+                                    },
+                                    {
+                                      "x": 358.4810126582279,
+                                      "y": 2.430379746835115,
+                                      "handleMirroring": "straight",
+                                      "handleOutX": 0,
+                                      "handleOutY": 0,
+                                      "handleInX": 0,
+                                      "handleInY": 0,
+                                      "radius": 0,
+                                      "__class": "PathSegment"
+                                    },
+                                    {
+                                      "x": 358.4810126582279,
+                                      "y": 0,
+                                      "handleMirroring": "straight",
+                                      "handleOutX": 0,
+                                      "handleOutY": 0,
+                                      "handleInX": 0,
+                                      "handleInY": 0,
+                                      "radius": 0,
+                                      "__class": "PathSegment"
+                                    },
+                                    {
+                                      "x": 0,
+                                      "y": 0,
+                                      "handleMirroring": "straight",
+                                      "handleOutX": 0,
+                                      "handleOutY": 0,
+                                      "handleInX": 0,
+                                      "handleInY": 0,
+                                      "radius": 0,
+                                      "__class": "PathSegment"
+                                    }
+                                  ],
+                                  "pathClosed": true
+                                }
+                              ],
+                              "insideStroke": false,
+                              "shapeId": "id_VR67CU4qI",
+                              "strokeEnabled": false,
+                              "strokeClipId": "id_VR67CU4qI_clip",
+                              "rect": {
+                                "x": 0.9483341772159832,
+                                "y": 0.7034531645575157,
+                                "width": 358.4810126582279,
+                                "height": 2.430379746835115
+                              },
+                              "frame": {
+                                "x": 0.9483341772159832,
+                                "y": 0.7034531645575157,
+                                "width": 358.4810126582279,
+                                "height": 2.430379746835115
+                              },
+                              "strokeAlpha": 0,
+                              "name": "Fill 27",
+                              "rotation": 0,
+                              "fill": {
+                                "r": 255,
+                                "g": 255,
+                                "b": 255,
+                                "a": 1,
+                                "h": 0,
+                                "s": 0,
+                                "l": 1,
+                                "initialValue": "rgba(255,255,255,1)",
+                                "roundA": 1,
+                                "format": "rgb"
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "codeOverrideIdentifier": "./Test_2.tsx_Line"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "codeOverrideIdentifier": "./Test_2.tsx_Background"
+  },
+  "metadata": {
+    "name": "CA_Screen_960X544",
+    "id": "fXtBH06py",
+    "width": 960,
+    "height": 544,
+    "selectionLock": false,
+    "settings": {
+      "zoom": -1,
+      "rotate": false,
+      "bezel": false,
+      "responsive": false,
+      "touch": false,
+      "__class": "PreviewSettings"
+    }
+  },
+  "navigation": {},
+  "customProperties": {}
+};
+        const $build_index_js = document.querySelector("#build_index_js")
+        const script = $build_index_js ? $build_index_js.textContent.trim() : ""
+        
+        // need react to have rendered, before we can do setPreviewData
+        setTimeout(() => {
+            if (script.length > 0) {
+                setPreviewData(script, data)
+            } else {
+                fetch("build/index.js").then((response) => {
+                    return response.text().then((script) => {
+                        setPreviewData(script, data)
+                    })
+                })
+            }
+        }, 0)
+        </script>
+    </body>
+</html>
